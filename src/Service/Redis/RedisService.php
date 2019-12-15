@@ -29,7 +29,7 @@ class RedisService implements RedisServiceInterface
      * @param string $key
      * @return string
      */
-    public function get(string $key): string
+    public function get(string $key): ?string
     {
         return $this->client->get($key);
     }
