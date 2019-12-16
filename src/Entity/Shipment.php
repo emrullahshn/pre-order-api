@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Traits\NameTrait;
+use App\Entity\Traits\PriceTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,6 +15,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 class Shipment
 {
     use NameTrait,
+        PriceTrait,
         TimestampableEntity;
 
     /**
@@ -27,11 +29,6 @@ class Shipment
      * @ORM\OneToMany(targetEntity="App\Entity\Orders", mappedBy="shipment")
      */
     private $orders;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $price;
 
     public function __construct()
     {
@@ -70,18 +67,6 @@ class Shipment
                 $order->setShipment(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getPrice(): ?float
-    {
-        return $this->price;
-    }
-
-    public function setPrice(float $price): self
-    {
-        $this->price = $price;
 
         return $this;
     }
