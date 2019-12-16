@@ -34,3 +34,7 @@ Used nelmio api doc for documentation.
 ```
 https://www.getpostman.com/collections/80951e2569529cbbe63f
 ```
+
+# TODO
+ - Project to do dockerize
+ - Money class will be used for price calculates
