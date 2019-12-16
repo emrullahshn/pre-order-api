@@ -58,9 +58,9 @@ class EmailService implements EmailServiceInterface
 
     /**
      * @param string $from
-     * @return self
+     * @return EmailServiceInterface
      */
-    public function setFrom(string $from): self
+    public function setFrom(string $from): EmailServiceInterface
     {
         $this->from = $from;
 
