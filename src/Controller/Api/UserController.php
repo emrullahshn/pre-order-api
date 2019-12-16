@@ -4,7 +4,7 @@ namespace App\Controller\Api;
 
 use App\Entity\User;
 use App\Library\Utils;
-use App\Service\Redis\RedisServiceInterface;
+use App\Service\Redis\CacheServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -75,12 +75,12 @@ class UserController extends AbstractFOSRestController
      *
      * @param Request $request
      * @param EntityManagerInterface $entityManager
-     * @param RedisServiceInterface $redisService
+     * @param CacheServiceInterface $redisService
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @return Response
      * @throws Exception
      */
-    public function login(Request $request, EntityManagerInterface $entityManager, RedisServiceInterface $redisService, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function login(Request $request, EntityManagerInterface $entityManager, CacheServiceInterface $redisService, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $params = json_decode($request->getContent(), true);
 

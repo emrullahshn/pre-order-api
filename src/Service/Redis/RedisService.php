@@ -5,7 +5,7 @@ namespace App\Service\Redis;
 
 use Predis\Client;
 
-class RedisService implements RedisServiceInterface
+class RedisService implements CacheServiceInterface
 {
     /**
      * @var Client $client

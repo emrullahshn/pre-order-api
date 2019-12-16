@@ -4,7 +4,7 @@ namespace App\Security;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
-use App\Service\Redis\RedisServiceInterface;
+use App\Service\Redis\CacheServiceInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,16 +24,16 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
     private $userRepository;
 
     /**
-     * @var RedisServiceInterface $redisService
+     * @var CacheServiceInterface $redisService
      */
     private $redisService;
 
     /**
      * TokenAuthenticator constructor.
      * @param UserRepository $userRepository
-     * @param RedisServiceInterface $redisService
+     * @param CacheServiceInterface $redisService
      */
-    public function __construct(UserRepository $userRepository, RedisServiceInterface $redisService)
+    public function __construct(UserRepository $userRepository, CacheServiceInterface $redisService)
     {
         $this->userRepository = $userRepository;
         $this->redisService = $redisService;
