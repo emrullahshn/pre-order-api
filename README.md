@@ -38,3 +38,4 @@ https://www.getpostman.com/collections/80951e2569529cbbe63f
 # TODO
  - Project to do dockerize
  - Money class will be used for price calculates
+ - Mocky.io will be used for test Rest API
